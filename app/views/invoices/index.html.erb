@@ -1,0 +1,31 @@
+<div class="page_content">
+		<p class="heading"><u>	Invoices List </u></p>
+
+<% if @invoices.present? %>
+<table>
+  <tr class="invoice_th">
+    <th>Invoice no.</th>
+    <th>Name</th>
+    <th>Total Amount</th>
+  </tr>
+
+<% @invoices.each do |invoice| %>
+  <tr class="invoice_td">
+    <td><%= invoice.number %></td>
+    <td><%= invoice.name %></td>
+    <td><%= invoice.amount %></td>
+    <td><%= link_to 'Show', invoice %></td>
+    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+    <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+  <p>
+   <i>No invoices to show.</i>
+  </p>
+<% end %>
+<br />
+
+<%= link_to 'New', new_invoice_path %>
+</div>

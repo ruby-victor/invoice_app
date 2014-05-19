@@ -1,0 +1,50 @@
+<div class="page_content">
+<p class="heading"><u>	New Invoice </u></p>
+
+<% if @invoice.errors.any? %>
+				<div class="error">
+				<% @invoice.errors.each do |k,v|%>
+								<%=v %> <br/>
+				<% end %>
+				</div>
+<% end %>
+
+<%= form_for @invoice do |f| %>
+				<p>
+								<table>
+								<tr>
+												<th>InvoiceNo.</th>
+												<th>Name</th>
+												<th>Total Amount</th>
+								</tr>
+								<tr>
+												<td><%= f.text_field :number, :size=> 5,:value=> @auto_number  %></td>
+												<td><%= f.text_field :name , :size=> 10%></td>
+												<td><%= f.text_field :amount , :size=> 5%></td>
+								</tr>
+								</table>
+				</p>
+				<p><u>Line-items</u></p>
+				<p>
+				<table>
+				<tr>
+								<th>Slno</th>
+								<th>Unit</th>
+								<th>Description</th>
+								<th>Amount</th>
+				</tr>
+
+				<%= f.fields_for :line_items do |line| %>
+				<tr>
+								<td><%= line.text_field :serial_number, :size=> 2 %></td>
+								<td><%=line.text_field :unit , :size=> 2%></td>
+								<td><%=line.text_field :description%></td>
+								<td><%=line.text_field :amount, :size=> 5%></td>
+				</tr>
+				<%end%>
+				</table>
+</p>
+<p><%= f.submit "Submit" %></p>
+<% end %>
+<%= link_to 'Back', invoices_path %>
+</div>

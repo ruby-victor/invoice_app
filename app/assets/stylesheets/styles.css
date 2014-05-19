@@ -1,0 +1,32 @@
+ 
+.main{
+	 }
+.header {
+	height: 100px;
+	background-color: #FFCC99;
+}
+
+.content {
+	height: 500px;
+	background-color: #FFFFFF;
+}
+
+.footer  {
+	height: 50px;
+	background-color: #FFCC99;
+}
+
+.page_content{
+	float:left;
+	margin-left: 200px;
+}
+
+.heading{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.error {
+	background-color : #FFCCCC;
+	color: #FF0033;
+}
